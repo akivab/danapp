@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+    maximum-scale=1, user-scalable=0">
+    <title>Dan Bamberger</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans'
+    rel='stylesheet' type='text/css'>
+  </head>
+  <style>
+    * { font-family: "Open Sans", sans-serif; }
+    body {  margin: auto; }
+    .masthead { width: 100%; text-align: center;}
+    #logo { width: 100%; max-width: 380px; }
+    .details{ position: fixed; bottom: 0; right: 0; }
+    .details > a > img { width: 45px; padding-top: 15px; display: inline; }
+    #cover { max-width: 510px; margin: auto; clear: both; opacity: 0; height:
+      60px; overflow: scroll; -webkit-overflow-scrolling: touch; position:
+      static; background:white; }
+    .headers { width: 500px; height: 60px; }
+    .headers > div > img{ margin: auto; display: block; height: 20px;}
+    .headers > div { display: inline-block; width: 60px; text-align: center;
+      height: 40px; padding: 10px; border-radius: 10px;  cursor: pointer;
+    }
+    .selected { background-color: gray; color: white;  }
+    .main { clear: both; }
+  </style>
+  <script>
+    var selected_id = null;
+    var top_stuck = false;
+    function $(s){ return document.getElementById(s); }
+    function act(id) {
+      if(id == selected_id) return;
+      switch(id) {
+        case 'listings': break;
+        case 'about': break;
+        case 'newsletter': break;
+        case 'information': break;
+        case 'press': break;
+        case 'contact':break;
+        default: console.log(id); break;
+      }
+    }
+    window.onscroll = function() {
+      if (!top_stuck && window.pageYOffset >= $('logo').offsetHeight) {
+        top_stuck = true;
+        var cover = $('cover');
+        var left = cover.offsetLeft;
+        cover.style['-webkit-transition'] ='';
+        cover.style.position = 'fixed';
+        cover.style['padding-left'] = cover.style['padding-right'] = left + 'px';
+        cover.style['top'] = 0;
+      } else if (top_stuck && window.pageYOffset < $('logo').offsetHeight) {
+        top_stuck = false;
+        var cover = $('cover');
+        cover.style['padding-left'] = cover.style['padding-right'] = 0;
+        cover.style.position = 'static';
+      }
+    };
+    window.onload = function() {
+      var MAX_WIDTH = 510;
+      var cover = $('cover');
+      cover.style['-webkit-transition'] ='all .5s ease-in-out';
+      setTimeout(function(){
+        if (cover.offsetWidth >= MAX_WIDTH) {
+          cover.style.overflow = 'hidden';
+        }
+        cover.style.opacity = '1';
+      }, 0);
+      var children = $('headers').children;
+      for(var i = 0; i < children.length; i++) {
+        children[i].onclick = function(){
+          for(var j in children) children[j].className = '';
+          this.className = 'selected';
+          act(this.id);
+          selected_id = this.id;
+        };
+      }
+    };
+
+  </script>
+  <body>
+    <div class='masthead'>
+      <img id='logo' src='/i/logo.jpg' />
+      <div id="details" class='details'>
+        <a href="tel:+15165784564"><img src='/i/tel.png' /></a>
+        <a href='mailto:dan@danbamberger.com'><img src='/i/mail.png' /></a>
+        <a href='http://www.facebook.com/dan.bamberger'><img src='/i/fb.png' /></a>
+      </div>
+    </div>
+    <div id='cover'>
+      <div id='headers' class='headers'>
+        <div id='listings'>
+          <img src='/i/listings.png' />
+          listings
+        </div>
+        <div id='about'>
+          <img src='/i/about.png' />
+          about
+        </div>
+        <div id='newsletter'>
+          <img src='/i/newsletter.png' />
+          news
+        </div>
+        <div id='information'>
+          <img src='/i/info.png' />
+          info
+        </div>
+        <div id='press'>
+          <img src='/i/press.png' />
+          press
+        </div>
+      <div id='contact'>
+        <img src='/i/contact.png' />
+        contact
+      </div>
+    </div>
+  </div>
+  <div id='main' class='main'>
+  </div>
+
+  </body>
+</html>
