@@ -7,6 +7,9 @@ handlers:
 - url: /i
   static_dir: images
 
+- url: /s
+  static_dir: scripts
+
 - url: /
   static_files: main.html
   upload: main.html
