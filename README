@@ -1,0 +1,7 @@
+To add a new listing:
+
+Create a new folder under images and data/listings with the same name (code for the apartment)
+
+Fill the images/ directory with whatever images you want
+
+Fill the data/listings file with one text file

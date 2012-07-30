@@ -1,0 +1,29 @@
+* { font-family: "Open Sans", sans-serif; }
+body {  margin: auto; }
+.masthead { width: 100%; text-align: center;}
+.details{ position: fixed; bottom: 0; right: 0; }
+.details > a > img { width: 45px; padding-top: 15px; display: inline; }
+.stuck { position: fixed; top: 0 }
+.unstuck { padding-left: 0; padding-right: 0; position: static; }
+.headers { width: 500px; height: 60px; }
+.headers > div > img{ margin: auto; display: block; height: 20px;}
+.headers > div { display: inline-block; width: 60px; text-align: center; height: 40px; padding: 10px; border-radius: 10px;  cursor: pointer; }
+.main { clear: both; max-width: 600px; margin: auto; margin-bottom: 45px;  
+-webkit-transition-property:opacity; -webkit-transition-duration: 0.2s; }
+.main > div > img { float: left; padding: 15px;  }
+.newsletter  { max-width: 400px; min-width: 300px; }
+.subscribe { position: fixed; bottom: 0; left: 0; text-decoration: none; font-family: 'Helvetica', 'Arial', 'sans-serif'; font-size: 15px; background: #369; color: white; font-weight: bold; padding: 5px; margin: 5px; border-radius: 5px; } 
+.subscribe:hover { opacity: 0.8; } 
+#logo { width: 100%; max-width: 380px; }
+#cover { width: 100%; margin: auto; clear: both; opacity: 0; height: 60px; overflow: scroll; -webkit-overflow-scrolling: touch;
+-webkit-transition-property:opacity; -webkit-transition-duration: 0.5s;
+background: white; z-index: 9999}
+.stuck:after{ background:-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255,255, 255, 0))); height: 30px; position: fixed; top:60px; left:0; width: 100%; content:''}
+.headline{ cursor: pointer; margin-top: 10px; padding: 15px; background-color: #bbb} 
+.selected { background-color: #555; color: white;}
+.headline:hover{ background-color: #888; color: white}
+.newscover { max-height: 100px; overflow: hidden; position: relative; 
+-webkit-transition-property:maxHeight; -webkit-transition-duration: 0.5s;}
+.newscontent { padding-left: 15px; border-left: 2px dotted #555; }
+.clickformore{ position: absolute; bottom: 0; right: 0; background: rgba(255,255,255,0.8); color: purple; padding: 10px; cursor: pointer; border-radius: 10px; }
+.clickformore:hover{ background: rgba(50,50,50,0.2); }
