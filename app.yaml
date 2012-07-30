@@ -8,9 +8,7 @@ handlers:
   static_dir: images
 
 - url: /s
-  static_dir: scripts
+  static_dir: resources
 
-- url: /
-  static_files: main.html
-  upload: main.html
-
+- url: .*
+  script: index.py
